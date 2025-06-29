@@ -1,0 +1,166 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Header Section -->
+<section class="w-full h-[500px] bg-gradient-to-r from-rose-400 via-pink-500 to-red-400 shadow-2xl flex flex-col justify-center items-center text-white text-center px-6 relative overflow-hidden">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4">🚀 Welcome to Tweet Creation Website</h1>
+    <p id="sliderText" class="text-xl md:text-2xl font-light animate-fadeIn">
+        Create tweets with ease and elegance.
+    </p>
+    <div class="mt-4 flex gap-6 text-sm font-medium">
+        <span class="flex items-center gap-1">🎯 Fast Results</span>
+        <span class="flex items-center gap-1">🎨 Clean Design</span>
+        <span class="flex items-center gap-1">💬 Real Tweets</span>
+    </div>
+</section>
+
+<!-- Feature Section -->
+<section class="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl font-bold text-center text-white mb-12">
+      ✨ Why Choose Tweet Creator?
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+      <!-- Card 1 -->
+      <div class="w-full max-w-sm mx-auto bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+        <div class="text-5xl mb-4">🎨</div>
+        <h3 class="text-xl font-bold text-white mb-2">Intuitive Interface</h3>
+        <p class="text-white/80 mb-4">Design and create tweets in seconds with our modern and clean layout. No clutter, just creativity.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-white/30 text-white rounded-full">User-Friendly</span>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="w-full max-w-sm mx-auto bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+        <div class="text-5xl mb-4">⚡</div>
+        <h3 class="text-xl font-bold text-white mb-2">Fast & Secure</h3>
+        <p class="text-white/80 mb-4">Lightning-fast submission with built-in CSRF protection ensures your tweets are safe and quick to go live.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-white/30 text-white rounded-full">Secure API</span>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="w-full max-w-sm mx-auto bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+        <div class="text-5xl mb-4">🌐</div>
+        <h3 class="text-xl font-bold text-white mb-2">Global Reach</h3>
+        <p class="text-white/80 mb-4">Reach the world with one click. Your tweets are instantly visible to your audience — anywhere, anytime.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-white/30 text-white rounded-full">Instant Share</span>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="w-full max-w-sm mx-auto bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+        <div class="text-5xl mb-4">🤖</div>
+        <h3 class="text-xl font-bold text-white mb-2">AI Assistance</h3>
+        <p class="text-white/80 mb-4">Let our smart AI help you craft engaging tweets with the right tone and hashtags.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-white/30 text-white rounded-full">Smart Tools</span>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="w-full max-w-sm mx-auto bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+        <div class="text-5xl mb-4">📈</div>
+        <h3 class="text-xl font-bold text-white mb-2">Analytics</h3>
+        <p class="text-white/80 mb-4">Track engagement and understand your audience to improve your content strategy.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-white/30 text-white rounded-full">Insights</span>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="w-full max-w-sm mx-auto bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+        <div class="text-5xl mb-4">🔒</div>
+        <h3 class="text-xl font-bold text-white mb-2">Privacy Focused</h3>
+        <p class="text-white/80 mb-4">Your data stays private and secure. We respect your privacy and never share your info.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-white/30 text-white rounded-full">Data Safe</span>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="w-full max-w-sm mx-auto bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+        <div class="text-5xl mb-4">🎯</div>
+        <h3 class="text-xl font-bold text-white mb-2">Targeted Content</h3>
+        <p class="text-white/80 mb-4">Create tweets tailored for your niche audience to boost relevance and engagement.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-white/30 text-white rounded-full">Precision</span>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="w-full max-w-sm mx-auto bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+        <div class="text-5xl mb-4">🕒</div>
+        <h3 class="text-xl font-bold text-white mb-2">Scheduled Posts</h3>
+        <p class="text-white/80 mb-4">Plan your tweets ahead of time and let them post automatically when your audience is most active.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-white/30 text-white rounded-full">Time Saver</span>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="w-full max-w-sm mx-auto bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+        <div class="text-5xl mb-4">💬</div>
+        <h3 class="text-xl font-bold text-white mb-2">Community</h3>
+        <p class="text-white/80 mb-4">Join a community of creators sharing tips and inspiration for social media success.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-white/30 text-white rounded-full">Connect</span>
+      </div>
+
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="text-center py-12">
+    <p class="text-xl md:text-2xl font-medium text-white mb-6">Ready to get started?</p>
+    <a href="{% url 'tweet_list' %}"
+       class="inline-block px-8 py-3 bg-white text-pink-600 font-semibold text-lg rounded-full shadow-xl hover:bg-pink-100 hover:text-pink-700 transition-all duration-300">
+        ✍️ View Tweets
+    </a>
+</section>
+
+<!-- ABOUT US SECTION -->
+<section id="about-section" class="py-5">
+  <div class="container">
+      <div class="bg-dark bg-opacity-50 rounded p-4 text-center shadow">
+          <h2 class="fw-bold text-white mb-3">About Us</h2>
+          <p class="text-light">
+              Welcome to Chai's Django project – a simple, fun photo tweeting platform
+              built with Django, Bootstrap, and Tailwind CSS. Share your thoughts, upload photos,
+              and connect with fellow users in a sleek, modern environment.
+          </p>
+          <p class="text-light">
+              Whether you’re here to post your own tweets or just browse the latest updates,
+              we’re excited to have you join our community. Let’s share some chai and tweets together!
+          </p>
+      </div>
+  </div>
+</section>
+
+<!-- Animations -->
+<style>
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+    animation: fadeIn 1s ease-out both;
+}
+</style>
+
+<!-- Text Slider Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const sliderText = document.getElementById("sliderText");
+    const messages = [
+        "Express yourself, inspire others.",
+        "Create tweets with ease and elegance.",
+        "Tell your story in 280 characters.",
+        "Powerful tools, beautiful results."
+    ];
+    let index = 0;
+
+    setInterval(() => {
+        sliderText.classList.remove("animate-fadeIn");
+        setTimeout(() => {
+            sliderText.textContent = messages[index];
+            sliderText.classList.add("animate-fadeIn");
+            index = (index + 1) % messages.length;
+        }, 200);
+    }, 3500);
+});
+</script>
+
+{% endblock %}

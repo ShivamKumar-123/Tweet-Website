@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Logged Out - Chai aur Tweet
+{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column min-vh-100 justify-content-between">
+    <div class="container mt-5 mb-5">
+        <h1 class="text-center mb-4 text-dark fw-bold">
+            Logged Out
+        </h1>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow border-0 mb-5" style="background: rgba(0,0,0,0.6); border-radius: 8px;">
+                    <div class="card-body text-center">
+                        <p class="text-white fs-5">
+                            You have been successfully logged out.
+                        </p>
+                        <a href="{% url 'login' %}" class="btn btn-warning mt-3">Login here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer will now stick to bottom if content is short -->
+</div>
+{% endblock %}

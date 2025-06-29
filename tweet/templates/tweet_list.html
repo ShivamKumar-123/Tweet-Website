@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chai aur Tweet
+{% endblock %}
+
+{% block content %}
+
+<style>
+    /* Hero Section */
+    .hero-section {
+        position: relative;
+        width: 100%;
+        min-height: 300px;
+        background-image: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 4rem 1rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        color: #fff;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        color: #eee;
+    }
+
+    .tweet-card {
+        height: 550px; /* increased height */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tweet-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.6);
+    }
+
+    .tweet-img {
+        height: 320px;  /* increased from 200px */
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #ddd;
+        margin-bottom: 1rem;
+    }
+
+    .fade-in {
+        animation: fadeIn 1s ease-in-out both;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+
+    .btn-outline-primary, .btn-outline-danger {
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-color: #fff;
+    }
+
+    .btn-outline-danger:hover {
+        background-color: rgba(255, 0, 0, 0.4);
+        border-color: #ff0000;
+    }
+</style>
+
+<!-- Hero Section -->
+<div class="hero-section fade-in">
+    <h1 class="hero-title">🚀 Welcome to Tweet Creation Website</h1>
+    <p class="hero-subtitle">Tell your story in 280 characters and share it with the world.</p>
+    <div class="d-flex justify-content-center gap-3 mt-3">
+        <span class="badge bg-primary">🎯 Fast Results</span>
+        <span class="badge bg-success">🎨 Clean Design</span>
+        <span class="badge bg-info">💬 Real Tweets</span>
+    </div>
+</div>
+
+<!-- Tweet Section -->
+<div class="container mt-5 mb-5 fade-in">
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-light text-dark fw-bold px-4 py-2 rounded-pill shadow" href="{% url 'tweet_create' %}">
+            ✍️ Create a Tweet
+        </a>
+    </div>
+
+    {% if tweets %}
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for tweet in tweets %}
+                <div class="col">
+                    <div class="card tweet-card shadow-sm h-100">
+                        <img src="{{ tweet.photo.url }}" class="tweet-img" alt="Tweet Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ tweet.user.username }}</h5>
+                            <p class="card-text">{{ tweet.text }}</p>
+
+                            {% if tweet.user == user %}
+                                <div class="d-flex justify-content-center gap-2 mt-auto">
+                                    <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                    <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-light mt-5">No tweets available yet. Be the first to create one!</p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,187 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Chai aur Django{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN (if you want to keep using Tailwind) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(270deg,
+                #ff9a9e,
+                #fad0c4,
+                #fbc2eb,
+                #a18cd1,
+                #8ec5fc,
+                #e0c3fc,
+                #fccb90,
+                #ff9a9e
+            );
+            background-size: 1600% 1600%;
+            animation: gradientFlow 30s ease infinite;
+            font-family: 'Segoe UI', sans-serif;
+            color: #ffffff;
+        }
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .navbar .navbar-brand {
+            color: #ffffff !important;
+        }
+        .navbar .navbar-brand:hover {
+            color: #ffe4f6 !important;
+        }
+        .navbar .btn,
+        .navbar .btn-outline-primary,
+        .navbar .btn-success {
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+        }
+        .navbar .btn-outline-primary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff !important;
+        }
+        .navbar .btn-success:hover {
+            background-color: rgba(40, 167, 69, 0.5);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        footer, .card-title, .card-text {
+            color: #ffffff !important;
+        }
+        a {
+            color: #ffe4f6;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #ffffff;
+        }
+
+        /* FIX: force navbar link colors visible */
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+            font-weight: 600;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffe4f6 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg border-bottom shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="{% url 'home' %}">TweetBar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse show" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#about-section">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#contact-section">Contact Us</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <form method="post" action="{% url 'loggout' %}" class="d-flex ms-3">
+                                {% csrf_token %}
+                                <button class="btn btn-danger btn-sm" type="submit">Logout</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{% url 'register' %}" class="btn btn-outline-primary btn-sm ms-3 me-2">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}" class="btn btn-success btn-sm">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+
+        
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact-section" class="pt-5 pb-3 mt-auto border-top">
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-md-4 mb-4">
+                    <h5>About This Project</h5>
+                    <p>
+                        Chai's Django project is a simple photo tweeting platform built with love,
+                        Bootstrap 5, and a pinch of magic ✨.
+                    </p>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-md-3 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'home' %}" class="text-light">Home</a></li>
+                        <li><a href="{% url 'tweet_list' %}" class="text-light">Create Tweet</a></li>
+                        <li><a href="{% url 'register' %}" class="text-light">Register</a></li>
+                        <li><a href="{% url 'login' %}" class="text-light">Login</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div class="col-md-2 mb-4">
+                    <h5>Contact</h5>
+                    <p class="mb-1">📧 chai@example.com</p>
+                    <p>📞 +91-9876543210</p>
+                </div>
+                <!-- Social -->
+                <div class="col-md-3 mb-4">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-light me-3 fs-5"><i class="bi bi-github"></i></a>
+                    <a href="#" class="text-light me-3 fs-5"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-light me-3 fs-5"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center">
+                <small>&copy; {{ year|default:"2025" }} Chai's Django Project. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
